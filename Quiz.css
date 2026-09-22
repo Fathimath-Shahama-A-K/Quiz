@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(254, 203, 227);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1ren;
+
+
+}
+.container{
+    background: linear-gradient(80deg ,rgb(248, 158, 206),
+    rgb(245, 150, 150),rgb(250, 201, 142));
+    border-radius: 1rem;
+    box-shadow: -2px -2px 40px rgb(132, 131, 132);
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+}
+.scrn{
+    padding: 2rem;
+    text-align: center;
+    display: none;
+}
+.scrn.actv{
+    display: block;
+
+}
+#strtScreen h1{
+    color: blueviolet;
+    margin-bottom: 20px;
+    font-size: xxx-large;
+    font-weight: bolder;
+}
+.quizHdr{
+    
+
+}
