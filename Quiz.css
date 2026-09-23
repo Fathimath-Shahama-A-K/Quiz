@@ -37,7 +37,116 @@ body{
     font-size: xxx-large;
     font-weight: bolder;
 }
+#strtScreen p{
+   
+    margin-bottom: 20px;
+   
+}
+
 .quizHdr{
-    
+    margin-bottom: 2rem;
+}
+#qsText{
+    color: beige;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+.quizInfo{
+    display: flex;
+    justify-content:space-between;
+    color: bisque;
+    margin-bottom: 15px;
+}
+.ansrContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.ansBtn {
+    background-color:rgb(246, 190, 246) ;
+    color: black;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+.ansBtn:hover{
+    background-color: rgb(193, 189, 189);
+    border-color: bisque;
 
 }
+.ansBtn.crt{
+    background-color: rgb(219, 251, 219);
+    border-color: rgb(160, 244, 160);
+    color: rgb(100, 245, 100);
+}
+.ansBtn.incrt{
+    background-color: rgb(245, 151, 151);
+    border-color: rgb(239, 87, 87);
+    color: rgb(230, 7, 7);
+
+}
+.progressBar{
+   height: 10px;
+   background-color: rgb(244, 184, 244);   
+   border-radius: 5px;
+   overflow: hidden;
+   margin-top: 20px; 
+}
+.progrss{
+    height: 100%;
+    background-color: rgb(245, 94, 245);
+    width: 0%;
+    transition: width 0.3s ease;
+
+}
+#rsltScreen h1{
+    color: blueviolet;
+    margin-bottom: 30px;
+
+
+}
+.rsltInfo{
+    background-color: rgb(247, 184, 247);
+    border: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+
+
+}
+.rsltInfo p{
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+#rlstMsg{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: blueviolet;
+}
+button{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px ;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: rgb(172, 95, 245);
+}
+@media (
+    max-width:500px ){
+        .screen{
+            padding: 1rem;
+        }
+        #strtScreen h1{
+            font-size: 2rem;
+        }
+        
+    }
