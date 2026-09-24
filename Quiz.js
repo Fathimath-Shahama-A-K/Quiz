@@ -5,7 +5,7 @@ const startButton = document.getElementById("strtBtn");
 const questionText = document.getElementById("qsText");
 const answerContainer = document.getElementById("ansrContainer");
 const currentQsSpan = document.getElementById("currentQs");
-const totalQsSpan = document.getElementById("strtBtn");
+const totalQsSpan = document.getElementById("totalQsSpan");
 const scoreSpan = document.getElementById("score");
 const finalScoreSpan = document.getElementById("fnlScore");
 const maxScoreSpan = document.getElementById("maxScore");
@@ -15,7 +15,7 @@ const progressBar = document.getElementById("progress");
 
 const quizQs=[
     {
-    questions:"You are starting a new Quiz project and want Git to begin tracking it locally. Which command should you run first inside the project folder?",
+    question:"You are starting a new Quiz project and want Git to begin tracking it locally. Which command should you run first inside the project folder?",
     answers:[
             { text: "git clone", correct: false },
             { text: "git init", correct: true },
@@ -25,7 +25,7 @@ const quizQs=[
         ],
     },
     {
-        questions: "Which command shows you which files have been changed or are untracked?",
+        question: "Which command shows you which files have been changed or are untracked?",
         answers: [
                 { text: "git push", correct: false },
                 { text: "git status", correct: true },
@@ -114,7 +114,7 @@ const quizQs=[
             ],
     }
 
-]
+];
 
 let currentQsIndex=0;
 let score=0;
@@ -123,9 +123,84 @@ totalQsSpan.textContent=quizQs.length;
 maxScoreSpan.textContent=quizQs.length;
 
 startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", startQuiz);
+restartButton.addEventListener("click", restartQuiz);
 
 function startQuiz(){
-    console.log("quiz startes")
+  
+    currentQsIndex=0;
+    scoreSpan.textContent=0;
+    startScreen.classList.remove("actv");
+    QuizScreen.classList.add("actv");
+    showQs()
+}
+function showQs(){
+    answerDisabled=false;
+    const currentQs=quizQs[currentQsIndex];
+    currentQsSpan.textContent=currentQsIndex + 1;
+    const progresspercent=(currentQsIndex/quizQs.length)*100;
+    progressBar.style.width=progresspercent+"%";
+    questionText.textContent=currentQs.question;
+    answerContainer.innerHTML="";
+    currentQs.answers.forEach(answer =>{
+        const button=document.createElement("button")
+        button.textContent=answer.text
+        button.classList.add("answer.btn")
+        button.dataset.correct=answer.correct
+        button.addEventListener("click",selectAnswer)
+        answerContainer.appendChild(button)
+
+    })
+}
+function selectAnswer(event){
+    if (answerDisabled) 
+        return
+    answerDisabled=true;
+    const selectedBtn = event.target;
+    const isCrt= selectedBtn.dataset.correct === "true"
+    Array.from(answerContainer.children).forEach(button => {
+        if(button.dataset.correct ==="true"){
+            button.classList.add("correct");
+        }else if(button===selectedBtn){
+            button.classList.add("inCorrect");
+        }
+    });
+    if(isCrt){
+        score++;
+        scoreSpan.textContent=score
+    }
+    setTimeout( () => {
+        currentQsIndex++;
+    if(currentQsIndex< quizQs.length){
+        showQs()
+
+    }else{
+        showResult()
+    }
+    },1000)
+}
+function showResult(){
+    QuizScreen.classList.remove("actv")
+    resultScree.classList.add("actv")
+    finalScoreSpan.textContent=score;
+    const percentage =(score/quizQs.length)*100
+     
+    if(percentage===100){
+        resultMessage.textContent="Perfect! You are a Git genius! 🏆";
+    }else if(percentage>=80){
+         resultMessage.textContent="Excellent! You really know your Git! 🔥";
+    }
+    else if(percentage>=60){
+         resultMessage.textContent="Good job! You have a solid understanding! 👍";
+    }
+    else if(percentage>=40){
+         resultMessage.textContent="Not bad! Keep practicing and you'll improve! 💪";
+    }
+    else {
+         resultMessage.textContent="Keep learning! Practice makes progress! 📚";
+    }
 }
 
+function restartQuiz(){
+    resultScree.classList.remove("actv")
+    startQuiz();
+}

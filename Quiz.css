@@ -47,7 +47,7 @@ body{
     margin-bottom: 2rem;
 }
 #qsText{
-    color: beige;
+    color: rgb(221, 46, 215);
     font-size: 1rem;
     margin-bottom: 1rem;
     line-height: 1.8;
@@ -97,7 +97,7 @@ body{
    overflow: hidden;
    margin-top: 20px; 
 }
-.progrss{
+.progress{
     height: 100%;
     background-color: rgb(245, 94, 245);
     width: 0%;
@@ -123,7 +123,7 @@ body{
     color: black;
     margin-bottom: 1rem;
 }
-#rlstMsg{
+#rsltMsg{
     font-size: 1.5rem;
     font-weight: 600;
     color: blueviolet;
