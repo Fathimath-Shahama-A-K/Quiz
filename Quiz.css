@@ -14,8 +14,7 @@ body{
 
 }
 .container{
-    background: linear-gradient(80deg ,rgb(248, 158, 206),
-    rgb(245, 150, 150),rgb(250, 201, 142));
+    background:white;
     border-radius: 1rem;
     box-shadow: -2px -2px 40px rgb(132, 131, 132);
     width: 600px;
@@ -47,27 +46,27 @@ body{
     margin-bottom: 2rem;
 }
 #qsText{
-    color: rgb(221, 46, 215);
-    font-size: 1rem;
+    color: rgb(236, 19, 229);
+    font-size: 2rem;
     margin-bottom: 1rem;
     line-height: 1.8;
 }
 .quizInfo{
     display: flex;
     justify-content:space-between;
-    color: bisque;
+    color: rgb(229, 148, 48);
     margin-bottom: 15px;
 }
-.ansrContainer{
+.ansContainer{
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 30px;
 }
 .ansBtn {
-    background-color:rgb(246, 190, 246) ;
+    background-color:rgb(241, 239, 241) ;
     color: black;
-    border: 2px solid gray;
+    border: 2px solid rgb(133, 131, 131);
     border-radius: 10px;
     padding: 1rem;
     cursor: pointer;
@@ -99,13 +98,13 @@ body{
 }
 .progress{
     height: 100%;
-    background-color: rgb(245, 94, 245);
+    background-color: rgb(237, 17, 237);
     width: 0%;
     transition: width 0.3s ease;
 
 }
 #rsltScreen h1{
-    color: blueviolet;
+    color: rgb(231, 221, 240);
     margin-bottom: 30px;
 
 
@@ -129,8 +128,8 @@ body{
     color: blueviolet;
 }
 button{
-    background-color: blueviolet;
-    color: white;
+    background-color: rgb(234, 234, 234);
+    color: rgb(3, 3, 3);
     border: none;
     border-radius: 10px;
     padding: 15px 30px ;
